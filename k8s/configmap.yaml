@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: greatest-three-config
+data:
+  APP_VERSION: "v3"
+  APP_MESSAGE: "Configured using Kubernetes ConfigMap"

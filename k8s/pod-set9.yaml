@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: greatest-three-storage-pod
+spec:
+  containers:
+    - name: storage-container
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - "echo 'Kubernetes persistent storage test' > /data/test.txt; sleep 36000"
+      volumeMounts:
+        - name: persistent-storage
+          mountPath: /data
+  volumes:
+    - name: persistent-storage
+      persistentVolumeClaim:
+        claimName: greatest-three-pvc

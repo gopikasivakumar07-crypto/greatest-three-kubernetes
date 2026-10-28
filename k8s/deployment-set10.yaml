@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greatest-three-set10
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greatest-three-set10
+  template:
+    metadata:
+      labels:
+        app: greatest-three-set10
+    spec:
+      containers:
+        - name: greatest-three-container
+          image: greatest-three:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3

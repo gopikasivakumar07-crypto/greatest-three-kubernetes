@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: greatest-three-pod
+  labels:
+    app: greatest-three-pod
+spec:
+  containers:
+    - name: web-container
+      image: greatest-three:v1
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 80
