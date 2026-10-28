@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greatest-three-set12
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greatest-three-set12
+  template:
+    metadata:
+      labels:
+        app: greatest-three-set12
+    spec:
+      containers:
+        - name: greatest-three-container
+          image: greatest-three:set12
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
